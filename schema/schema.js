@@ -1,12 +1,6 @@
-import { gql } from 'apollo-server-express';
+import { gql } from "apollo-server-express";
 
-import UserSchema from './User';
-import PostSchema from './Post';
-import MessageSchema from './Message';
-import LikeSchema from './Like';
-import FollowSchema from './Follow';
-import CommentSchema from './Comment';
-import NotificationSchema from './Notification';
+import UserSchema from "./User";
 
 const schema = gql`
   type Query {
@@ -22,12 +16,6 @@ const schema = gql`
   }
 
   ${UserSchema}
-  ${PostSchema}
-  ${MessageSchema}
-  ${FollowSchema}
-  ${LikeSchema}
-  ${CommentSchema}
-  ${NotificationSchema}
 `;
 
 export default schema;

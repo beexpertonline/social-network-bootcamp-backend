@@ -1,5 +1,5 @@
-import mongoose from 'mongoose';
-import bcrypt from 'bcryptjs';
+import mongoose from "mongoose";
+import bcrypt from "bcryptjs";
 
 const Schema = mongoose.Schema;
 
@@ -40,48 +40,6 @@ const userSchema = new Schema(
       type: Boolean,
       default: false,
     },
-    posts: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'Post',
-      },
-    ],
-    likes: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'Like',
-      },
-    ],
-    comments: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'Comment',
-      },
-    ],
-    followers: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'Follow',
-      },
-    ],
-    following: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'Follow',
-      },
-    ],
-    notifications: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'Notification',
-      },
-    ],
-    messages: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'User',
-      },
-    ],
   },
   {
     timestamps: true,
@@ -91,8 +49,8 @@ const userSchema = new Schema(
 /**
  * Hashes the users password when saving it to DB
  */
-userSchema.pre('save', function (next) {
-  if (!this.isModified('password')) {
+userSchema.pre("save", function (next) {
+  if (!this.isModified("password")) {
     return next();
   }
 
@@ -108,4 +66,4 @@ userSchema.pre('save', function (next) {
   });
 });
 
-export default mongoose.model('User', userSchema);
+export default mongoose.model("User", userSchema);
