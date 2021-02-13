@@ -15,7 +15,7 @@ export const pubSub = new PubSub();
 const checkAuthorization = (token) => {
   return new Promise(async (resolve, reject) => {
     try {
-      const authUser = await jwt.verify(token, config.secret);
+      const authUser = await jwt.decode(token, config.secret);
       if (authUser) {
         resolve(authUser);
       } else {
